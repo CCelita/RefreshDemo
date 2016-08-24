@@ -10,16 +10,17 @@ import java.util.List;
  * 邮箱：yuanchao@feicuiedu.com
  */
 public class RefreshPresenter {
-    MainActivity activity;
+    private RefreshView refreshView;
     private List<String> list;
 
-    public RefreshPresenter(MainActivity activity) {
+    public RefreshPresenter(RefreshView refreshView) {
 
-        this.activity = activity;
+        this.refreshView = refreshView;
         list = new ArrayList<>();
     }
 
     public void refresh(){
+        //显示刷新
         new Refresh().execute();
     }
 
@@ -41,7 +42,9 @@ public class RefreshPresenter {
             for (int i = 0; i < 20; i++) {
                 list.add("刷新出来的数据"+i);
             }
-            activity.setData(list);
+            refreshView.setData(list);
+            //隐藏刷新
+            refreshView.hideRefresh();
         }
     }
 }

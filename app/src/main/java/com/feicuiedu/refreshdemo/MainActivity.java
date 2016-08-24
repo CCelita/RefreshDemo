@@ -12,7 +12,7 @@ import in.srain.cube.views.ptr.PtrClassicFrameLayout;
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements RefreshView{
 
     private ListView listView;
     private ArrayList<String> data;
@@ -53,13 +53,24 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void setData(List<String> list){
+
+    @Override public void setData(List<String> list) {
         data.clear();
         data.addAll(list);
         adapter.notifyDataSetChanged();
     }
 
+    @Override public void showRefresh() {
 
+    }
 
+    @Override public void hideRefresh() {
+        ptrFrameLayout.refreshComplete();
+    }
 
+    //下拉刷新刷新的时候视图
+    /**
+     * 1.显示刷新
+     * 2.隐藏刷新
+     */
 }
