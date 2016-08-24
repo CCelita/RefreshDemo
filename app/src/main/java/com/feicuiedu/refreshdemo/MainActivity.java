@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
 //    刷新
     private PtrClassicFrameLayout ptrFrameLayout;
 
-
     private ArrayAdapter<String> adapter;
 
     @Override
@@ -79,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         //把刷新的样式设置到ptrFrameLayout上
         ptrFrameLayout.setHeaderView(header);
         ptrFrameLayout.addPtrUIHandler(header);
+        ptrFrameLayout.setBackgroundResource(R.color.colorAccent);
     }
 
     private void refresh() {
